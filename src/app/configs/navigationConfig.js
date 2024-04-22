@@ -60,16 +60,16 @@ if (role === 'ADMIN') {
         },
       ],
     },
+    // {
+    //   id: 'ilerning',
+    //   title: 'Ilerning',
+    //   // translate: 'Data Barang',
+    //   type: 'item',
+    //   icon: 'heroicons-outline:shopping-cart',
+    //   url: '/apps/ilerning/',
+    // },
     {
-      id: 'ilerning',
-      title: 'Ilerning',
-      // translate: 'Data Barang',
-      type: 'item',
-      icon: 'heroicons-outline:shopping-cart',
-      url: '/apps/ilerning/',
-    },
-    {
-      id: 'barang-masuk',
+      id: 'userManagenent',
       title: 'User Management',
       // translate: 'Barang Masuk',
       type: 'item',
@@ -93,7 +93,7 @@ if (role === 'ADMIN') {
     //   url: '/apps/userRoles/',
     // },
   ];
-} else {
+} else if (role === 'DOSEN') {
   navigationConfig = [
     {
       id: 'master',
@@ -118,30 +118,17 @@ if (role === 'ADMIN') {
       icon: 'heroicons-outline:shopping-cart',
       url: '/apps/ilerning/',
     },
-    // {
-    //   id: 'barang-masuk',
-    //   title: 'Barang Masuk',
-    //   // translate: 'Barang Masuk',
-    //   type: 'item',
-    //   icon: 'move_to_inbox',
-    //   url: '/apps/barangMasuk/',
-    // },
-    // {
-    //   id: 'barang-keluar',
-    //   title: 'Barang Keluar',
-    //   // translate: 'Barang Keluar',
-    //   type: 'item',
-    //   icon: 'exit_to_app',
-    //   url: '/apps/barangKeluar/',
-    // },
-    // {
-    //   id: 'user',
-    //   title: 'User',
-    //   // translate: 'User',
-    //   type: 'item',
-    //   icon: 'heroicons-outline:user-circle',
-    //   url: '/apps/userRoles/',
-    // },
+  ];
+} else {
+  navigationConfig = [
+    {
+      id: 'ilerning',
+      title: 'Ilerning',
+      // translate: 'Data Barang',
+      type: 'item',
+      icon: 'heroicons-outline:shopping-cart',
+      url: '/apps/ilerning/',
+    },
   ];
 }
 

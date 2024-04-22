@@ -147,7 +147,7 @@ export default function SoalTable(props) {
       fileGambar: row?.file[1]?.lokasi_file,
     });
   };
-  console.log(dataEdit, 'data edit');
+  // console.log(dataEdit, 'data edit');
   const handleClose = () => {
     setOpen(false);
   };

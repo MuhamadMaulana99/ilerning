@@ -20,7 +20,7 @@ import PDFViewer from 'pdf-viewer-reactjs';
 
 export function Forum(props) {
   const { data } = props;
-  console.log(data, 'data');
+  // console.log(data, 'data');
 
   const [showComment, setShowComment] = useState(false);
   const [numPages, setNumPages] = useState(null);

@@ -12,7 +12,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
+import { ShowSoal } from '../tab/ShowSoal';
 import { Forum } from '../tab/Forum';
+import Nilai from '../tab/Nilai';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,7 +54,7 @@ const ScrollableTabPanel = styled('div')({
 });
 export default function IlerningTable(props) {
   const { header, getUser, data } = props;
-  // console.log(data, 'f');
+  // console.log(header, 'header');
   const dispatch = useDispatch();
   const [loading, setLoading] = React.useState([]);
   const theme = useTheme();
@@ -211,9 +213,9 @@ export default function IlerningTable(props) {
           aria-label="Vertical tabs example"
           sx={{ borderRight: 1, borderColor: 'divider' }}
         >
-          <Tab label="Forum" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Soal" {...a11yProps(0)} />
+          <Tab label="Forum" {...a11yProps(1)} />
+          <Tab label="Nilai" {...a11yProps(2)} />
           <Tab label="Item Four" {...a11yProps(3)} />
           <Tab label="Item Five" {...a11yProps(4)} />
           <Tab label="Item Six" {...a11yProps(5)} />
@@ -221,22 +223,23 @@ export default function IlerningTable(props) {
         </Tabs>
         <TabPanel value={value} index={0}>
           <div style={{ height: '1000px', overflowY: 'auto', width: '100%' }}>
-            <Forum data={data} />
+            <ShowSoal header={header} getUser={getUser} data={data} />
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
+          <Forum data={data} header={header} getUser={getUser} />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <Nilai header={header} getUser={getUser} />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
           <div style={{ height: '1000px', overflowY: 'auto' }}>
             {Array.from({ length: 100 }, (_, i) => (
               <p key={i}>Item {i + 1}</p>
             ))}
           </div>
         </TabPanel>
-        <TabPanel value={value} index={2}>
-          Item Three
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          Item Four
-        </TabPanel>
+
         <TabPanel value={value} index={4}>
           Item Five
         </TabPanel>

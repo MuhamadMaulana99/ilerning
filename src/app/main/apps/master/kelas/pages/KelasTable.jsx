@@ -123,6 +123,7 @@ function createData(
 export default function KelasTable(props) {
   const { header, getUser, listDosen } = props;
   const dispatch = useDispatch();
+  const roles = getUser?.user?.role;
   const [data, setData] = React.useState([]);
   const [dataEdit, setDataEdit] = React.useState({
     id: null,
@@ -308,7 +309,7 @@ export default function KelasTable(props) {
       </div>
     );
   }
-  // console.log(dataEdit, 'dataEdit')
+  // console.log(getUser?.role?.role, 'getUser')
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <Dialog
@@ -453,6 +454,7 @@ export default function KelasTable(props) {
                         <IconButton
                           onClick={() => handleClickOpen(row.id, row, 'soal')}
                           color="info"
+                          disabled={roles === 'ADMIN'}
                           className=""
                         >
                           <PostAddIcon />
@@ -466,6 +468,7 @@ export default function KelasTable(props) {
                         <IconButton
                           onClick={() => handleClickOpen(row.id, row, 'kelas')}
                           color="info"
+                          disabled={roles === 'ADMIN'}
                           className=""
                         >
                           <QueueIcon />
