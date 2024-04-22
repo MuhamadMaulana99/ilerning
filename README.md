@@ -1,0 +1,3 @@
+-  tambahkan foto
+-  pencarian
+- 
