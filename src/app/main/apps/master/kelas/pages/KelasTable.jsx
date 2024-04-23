@@ -37,6 +37,7 @@ import QueueIcon from '@mui/icons-material/Queue';
 import reverseCustomTimeFormat from 'src/app/main/API/page/reverseCustomTimeFormat';
 import Soal from '../soal/Soal';
 import Hubungkan from '../hubungkanKelas/Hubungkan';
+import Forum from '../forum/Forum';
 
 const columns = [
   { id: 'no', label: 'NO', minWidth: 170, align: 'left' },
@@ -85,6 +86,13 @@ const columns = [
   {
     id: 'Tambah',
     label: 'Tambah Kelas',
+    minWidth: 170,
+    align: 'center',
+    // format: (value) => value.toFixed(2),
+  },
+  {
+    id: 'TambahForum',
+    label: 'Tambah Forum',
     minWidth: 170,
     align: 'center',
     // format: (value) => value.toFixed(2),
@@ -309,7 +317,7 @@ export default function KelasTable(props) {
       </div>
     );
   }
-  // console.log(getUser?.role?.role, 'getUser')
+  // console.log(trigger, 'trigger');
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <Dialog
@@ -324,6 +332,8 @@ export default function KelasTable(props) {
             ? 'Tambah Soal'
             : trigger === 'kelas'
             ? 'Hubungkan Kelas'
+            : trigger === 'forum'
+            ? 'Forum'
             : 'Edit Kelas'}
         </DialogTitle>
         <DialogContent>
@@ -332,6 +342,8 @@ export default function KelasTable(props) {
               <Soal dataEdit={dataEdit} header={header} getUser={getUser} />
             ) : trigger === 'kelas' ? (
               <Hubungkan dataEdit={dataEdit} header={header} getUser={getUser} />
+            ) : trigger === 'forum' ? (
+              <Forum dataEdit={dataEdit} header={header} getUser={getUser} />
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 mb-10">
                 <div className="w-full md:w-auto">
@@ -467,6 +479,20 @@ export default function KelasTable(props) {
                       <div>
                         <IconButton
                           onClick={() => handleClickOpen(row.id, row, 'kelas')}
+                          color="info"
+                          disabled={roles === 'ADMIN'}
+                          className=""
+                        >
+                          <QueueIcon />
+                        </IconButton>
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex justify-center">
+                      <div>
+                        <IconButton
+                          onClick={() => handleClickOpen(row.id, row, 'forum')}
                           color="info"
                           disabled={roles === 'ADMIN'}
                           className=""

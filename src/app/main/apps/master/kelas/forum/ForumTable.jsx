@@ -40,7 +40,7 @@ const columns = [
   { id: 'no', label: 'NO', minWidth: 50, align: 'left' },
   {
     id: 'namaMahasiswa',
-    label: 'Nama Mahasiswa',
+    label: 'Judul Forum',
     minWidth: 170,
     align: 'left',
     // format: (value) => value.toLocaleString('en-US'),
@@ -54,21 +54,20 @@ const columns = [
   },
 ];
 
-function createData(no, id, name) {
+function createData(no, id, detail_forum) {
   return {
     no,
     id,
-    name,
+    detail_forum,
   };
 }
 
-export default function HubungkanTable(props) {
-  const { header, getUser, listDosen } = props;
+export default function ForumTable(props) {
+  const { header, getUser, listDosena, data } = props;
   const dispatch = useDispatch();
 
   const DataMhs = dataMahasiswa();
   // console.log(DataMhs);
-  const [data, setData] = React.useState([]);
   const [dataEdit, setDataEdit] = React.useState({
     id_kelas: null,
     judul_soal: '',
@@ -84,13 +83,10 @@ export default function HubungkanTable(props) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  let rows;
-  if (props?.data) {
-    rows = props?.data[0]?.detail_mahasiswa?.map((item, index) =>
-      createData(index + 1, item?.id, item?.name)
-    );
-  }
-  // console.log( rows, 'rows');
+  const rows = props?.data?.map((item, index) =>
+    createData(index + 1, item?.id, item?.detail_forum)
+  );
+  // console.log(data, 'dataaaa');
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -228,7 +224,6 @@ export default function HubungkanTable(props) {
         );
       })
       .catch((err) => {
-        setData([]);
         setLoading(false);
         const errStatus = err.response.status;
         const errMessage = err.response.data.message;
@@ -392,7 +387,7 @@ export default function HubungkanTable(props) {
               return (
                 <TableRow key={row.id} hover role="checkbox" tabIndex={-1}>
                   <TableCell>{index + 1}</TableCell>
-                  <TableCell>{row?.name}</TableCell>
+                  <TableCell>{row?.detail_forum?.judul_forum}</TableCell>
                   <TableCell>
                     <div className="flex justify-center">
                       <div>
