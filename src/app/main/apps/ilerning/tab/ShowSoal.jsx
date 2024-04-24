@@ -123,24 +123,28 @@ export function ShowSoal(props) {
         console.log(err);
       });
   };
+  // console.log(data, 'data');
   return (
     <Container maxWidth="md" sx={{ mt: 4 }}>
       {data?.map((item, index) => (
         <Paper key={item?.id} elevation={3} sx={{ p: 3, mb: 2 }}>
-          {/* {console.log(, 'ii')} */}
-          <Grid container spacing={2} alignItems="center">
-            <Grid item>
-              <Avatar src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile" />
+          {item?.detail_dosen?.map((items) => (
+            <Grid container key={items.email} spacing={2} alignItems="center">
+              <Grid item>
+                <Avatar src="kkk" alt={items?.name} />
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1" fontWeight="bold">
+                  <div>{items?.name}</div>
+                </Typography>
+                <Typography variant="subtitle2" color="text.secondary">
+                  <Typography className="flex">
+                    <div>Deadline </div> <div className="font-bold">{item?.deadline_soal}</div>
+                  </Typography>
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant="subtitle1" fontWeight="bold">
-                John Doe
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {moment().startOf('hour').fromNow(item?.created_at)} minute ago
-              </Typography>
-            </Grid>
-          </Grid>
+          ))}
           <Typography variant="h6" sx={{ mt: 2, mb: 3 }}>
             {item?.judul_soal}
           </Typography>
@@ -155,7 +159,7 @@ export function ShowSoal(props) {
                 // onClick={() => setShowComment(showComment === index ? null : index)}
                 onClick={() => handleClickOpenComment(index, item)}
               >
-                Comment
+                Jawaban
               </Button>
             </Grid>
             {showComment === index && (

@@ -53,7 +53,7 @@ const ScrollableTabPanel = styled('div')({
   overflowY: 'auto',
 });
 export default function IlerningTable(props) {
-  const { header, getUser, data } = props;
+  const { header, getUser, data, dataForum } = props;
   // console.log(header, 'header');
   const dispatch = useDispatch();
   const [loading, setLoading] = React.useState([]);
@@ -190,17 +190,6 @@ export default function IlerningTable(props) {
   if (props?.loading) {
     return <FuseLoading />;
   }
-  // if (data?.length === 0) {
-  //   return (
-  //     <div className="m-10 h-full w-full flex justify-center items-center">
-  //       <div>
-  //         <Alert severity="info">Data Kosong</Alert>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  // console.log(dataEdit, 'dataEdit')
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', height: '100%' }}>
@@ -227,10 +216,14 @@ export default function IlerningTable(props) {
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <Forum data={data} header={header} getUser={getUser} />
+          <div style={{ height: '1000px', overflowY: 'auto', width: '100%' }}>
+            <Forum dataForum={dataForum} header={header} getUser={getUser} />
+          </div>
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <Nilai header={header} getUser={getUser} />
+          <div style={{ height: '1000px', overflowY: 'auto', width: '100%' }}>
+            <Nilai header={header} getUser={getUser} />
+          </div>
         </TabPanel>
         <TabPanel value={value} index={3}>
           <div style={{ height: '1000px', overflowY: 'auto' }}>
