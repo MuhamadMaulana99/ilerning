@@ -135,7 +135,6 @@ function KelasHeader(props) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 mb-10">
               <div className="w-full md:w-auto">
                 <Autocomplete
-                  disablePortal
                   value={value?.id_dosen}
                   getOptionLabel={(option) => option.name}
                   onChange={(_, newValue) => {
@@ -164,7 +163,6 @@ function KelasHeader(props) {
               </div>
               <div className="w-full md:w-auto">
                 <Autocomplete
-                  disablePortal
                   value={value?.hari_kelas}
                   getOptionLabel={(option) => option.name}
                   onChange={(_, newValue) => {

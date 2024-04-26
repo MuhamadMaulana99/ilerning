@@ -210,12 +210,12 @@ export default function IlerningTable(props) {
           <Tab label="Item Six" {...a11yProps(5)} />
           <Tab label="Item Seven" {...a11yProps(6)} />
         </Tabs>
-        <TabPanel value={value} index={0}>
+        <TabPanel className="w-full" value={value} index={0}>
           <div style={{ height: '1000px', overflowY: 'auto', width: '100%' }}>
             <ShowSoal header={header} getUser={getUser} data={data} />
           </div>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel className="w-full" value={value} index={1}>
           <div style={{ height: '1000px', overflowY: 'auto', width: '100%' }}>
             <Forum dataForum={dataForum} header={header} getUser={getUser} />
           </div>

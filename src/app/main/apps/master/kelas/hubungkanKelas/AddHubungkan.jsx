@@ -118,7 +118,7 @@ export const AddHubungkan = (props) => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>Tambah Soal</DialogTitle>
+        <DialogTitle>Tambah Mahasiswa Ke Kelas</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             <div className="max-w-lg mx-auto p-6 ">
@@ -138,7 +138,7 @@ export const AddHubungkan = (props) => {
                   options={listMhs?.response?.data === undefined ? [] : listMhs?.response?.data}
                   // options={top100Films}
                   sx={{ width: 220 }}
-                  renderInput={(params) => <TextField {...params} label="Nama Dosen" />}
+                  renderInput={(params) => <TextField {...params} label="Nama Mahasiswa" />}
                 />
               </div>
             </div>

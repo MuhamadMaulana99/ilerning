@@ -127,8 +127,10 @@ export const AddForum = (props) => {
                 <div className="mb-6">
                   <TextField
                     id="standard-basic"
-                    label="Judul"
+                    label="Judul Forum"
                     variant="standard"
+                    multiline
+                    fullWidth
                     value={value?.judul_forum}
                     onChange={(e) => setValue({ ...value, judul_forum: e.target.value })}
                   />
