@@ -1,3 +1,4 @@
+import DashboardConfig from './dashboard/DashboardConfig';
 import IlerningConfig from './ilerning/IlerningConfig';
 import DosenConfig from './master/dosen/DosenConfig';
 import KelasConfig from './master/kelas/KelasConfig';
@@ -10,6 +11,7 @@ const appsConfigs = [
   KelasConfig,
   IlerningConfig,
   MahasiswaConfig,
+  DashboardConfig
 ];
 
 export default appsConfigs;

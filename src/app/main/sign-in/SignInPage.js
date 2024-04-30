@@ -186,11 +186,11 @@ function SignInPage() {
 
         <div className="z-10 relative w-full max-w-2xl">
           <div className="text-7xl font-bold leading-none text-gray-100">
-            <div>Selamat Datang</div>
-            <div> My Ilerning</div>
+            <div>E-Learning</div>
+            <div>Kelas Tambahan</div>
           </div>
           <div className="mt-24 text-lg tracking-tight leading-6 text-gray-400">
-            Ilerning For Everione
+            SMP Negeri 02 Tangerang Selatan
           </div>
         </div>
       </Box>

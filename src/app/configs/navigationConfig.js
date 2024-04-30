@@ -29,6 +29,14 @@ let navigationConfig = [];
 if (role === 'ADMIN') {
   navigationConfig = [
     {
+      id: 'dashboard',
+      title: 'Dashboard',
+      // translate: 'Data Barang',
+      type: 'item',
+      icon: 'heroicons-outline:shopping-cart',
+      url: '/apps/dashboard/',
+    },
+    {
       id: 'master',
       title: 'Master Data',
       type: 'collapse',
@@ -60,14 +68,6 @@ if (role === 'ADMIN') {
         },
       ],
     },
-    // {
-    //   id: 'ilerning',
-    //   title: 'Ilerning',
-    //   // translate: 'Data Barang',
-    //   type: 'item',
-    //   icon: 'heroicons-outline:shopping-cart',
-    //   url: '/apps/ilerning/',
-    // },
     {
       id: 'userManagenent',
       title: 'User Management',
@@ -76,22 +76,6 @@ if (role === 'ADMIN') {
       icon: 'move_to_inbox',
       url: '/apps/userMangement/',
     },
-    // {
-    //   id: 'barang-keluar',
-    //   title: 'Barang Keluar',
-    //   // translate: 'Barang Keluar',
-    //   type: 'item',
-    //   icon: 'exit_to_app',
-    //   url: '/apps/barangKeluar/',
-    // },
-    // {
-    //   id: 'user',
-    //   title: 'User',
-    //   // translate: 'User',
-    //   type: 'item',
-    //   icon: 'heroicons-outline:user-circle',
-    //   url: '/apps/userRoles/',
-    // },
   ];
 } else if (role === 'DOSEN') {
   navigationConfig = [
